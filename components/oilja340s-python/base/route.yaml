@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: oilja340s-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: oilja340s-python 
+  name: oilja340s-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: oilja340s-python
+    weight: 100 
